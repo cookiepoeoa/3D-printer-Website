@@ -1,0 +1,819 @@
+/* style.css */
+
+:root {
+    --bg-1: #f7fbff;
+    --bg-2: #eef6fb;
+    --center-bg: #56a0c5; /* 稍微加深的浅天蓝色，用于页面中间主要内容区域 */
+    --hero-bg: #2f7fc9; /* 淡深蓝色，用于 hero 区块 */
+    --card-bg: #ffffff;
+    --muted-bg: #f4f7fa;
+    --accent: #2c80d6;
+    --accent-strong: #1565c0;
+    --text-main: #14202a;
+    --muted-text: #586069;
+    --nav-bg: #0f2b44;
+    --footer-grad: linear-gradient(180deg,#0f2b44,#0b1f36);
+}
+
+/* 1. 全局基础样式 */
+body {
+    font-family: 'Arial', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-main);
+    background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. 导航栏 (通用样式) */
+.main-nav {
+    background: var(--nav-bg);
+    color: #fff;
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 18px rgba(6,18,34,0.12);
+}
+
+.main-nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: rgba(255,255,255,0.06);
+    color: var(--accent);
+}
+
+
+/* 3. 首页 (index.html) 特有布局 - 信息卡片 */
+.hero-section {
+    background: linear-gradient(135deg, var(--hero-bg), var(--accent));
+    color: #fff;
+    text-align: center;
+    padding: 90px 20px;
+    border-radius: 12px;
+}
+
+/* CTA 按钮样式，放在 hero 中更显眼 */
+.cta-button {
+    display: inline-block;
+    background: #fff;
+    color: var(--accent-strong);
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(12,20,30,0.12);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(12,20,30,0.16);
+}
+
+.index-cards-layout {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-container {
+    display: grid;
+    /* 默认 3 栏，使用 grid 布局实现卡片 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* 首页卡片图片统一样式 */
+.index-cards-layout .info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.index-cards-layout .info-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .index-cards-layout .info-card img {
+        height: 140px;
+    }
+
+    .card-container {
+        gap: 16px;
+    }
+}
+
+/* 4. 原理页 (principle.html) 特有布局 - 双栏 */
+.principle-two-column-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.principle-two-column-layout .sidebar {
+    flex: 1; /* 左侧占 1 份 */
+    min-width: 250px;
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+    height: fit-content; /* 侧边栏高度适应内容 */
+}
+
+.principle-two-column-layout .content-detail {
+    flex: 3; /* 右侧占 3 份 */
+}
+
+/* Principle 页面：更美观的两栏布局与卡片样式 */
+.principle-two-column-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 36px;
+    max-width: 1200px;
+    margin: 28px auto;
+    padding: 20px;
+    align-items: start;
+}
+
+.principle-two-column-layout h1 {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.process-intro {
+    grid-column: 1 / -1;
+    margin: 0 auto 18px;
+    text-align: center;
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 900px;
+}
+
+.sidebar {
+    background: var(--muted-bg);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(12,20,30,0.06);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.process-cycle {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.cycle-svg {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin: 0 auto 10px;
+}
+
+/* 允许 SVG 内元素溢出显示，防止标签被裁剪 */
+.cycle-svg, .process-cycle svg {
+    overflow: visible;
+}
+
+/* 在更宽的屏幕上给流程图更多空间 */
+@media (min-width: 1100px) {
+    .cycle-svg { max-width: 320px; }
+}
+
+.cycle-node {
+    cursor: pointer;
+    transition: transform 0.18s ease, fill 0.18s ease;
+}
+
+.cycle-node:hover {
+    transform: scale(1.15);
+    fill: #2c80d6;
+}
+
+.cycle-label {
+    font-size: 13px;
+    font-weight: 700;
+    fill: #333;
+}
+
+.content-detail {
+    min-width: 0;
+}
+
+.process-step {
+    margin-bottom: 42px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #eee;
+}
+
+.process-step:last-child {
+    border-bottom: none;
+}
+
+.step-number {
+    display: inline-block;
+    background-color: #4a90e2;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 12px;
+    font-weight: 700;
+}
+
+.step-subtitle {
+    color: #666;
+    font-size: 1.02rem;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.step-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.detail-card {
+    background-color: var(--card-bg);
+    border-left: 4px solid #4a90e2;
+    padding: 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(12,20,30,0.04);
+}
+
+.detail-card.warning {
+    border-left-color: #e74c3c;
+    background-color: #fff6f6;
+}
+
+.detail-card h3 {
+    margin-top: 0;
+    color: #222;
+}
+
+.highlight-step {
+    /* 与其它 process-step 保持一致：移除特殊背景和额外内边距 */
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border-left: 0;
+}
+
+.tip-box {
+    background-color: #f0f8ff;
+    border-left: 4px solid #4a90e2;
+    padding: 14px;
+    margin-top: 16px;
+    border-radius: 8px;
+}
+
+.quick-tips {
+    background-color: #fffdf5;
+    border-left: 4px solid #f1c40f;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 18px;
+}
+
+.technology-tabs {
+    margin-top: 16px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 8px 14px;
+    background-color: #f5f7fa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #4b5563;
+}
+
+.tab-button.active {
+    background-color: var(--card-bg);
+    box-shadow: 0 6px 16px rgba(12,20,30,0.06);
+    color: #1f2937;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.iteration-illustration {
+    background-color: #fbfff4;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    border-left: 4px solid #2ecc71;
+}
+
+@media (max-width: 992px) {
+    .principle-two-column-layout {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .principle-two-column-layout h1,
+    .process-intro {
+        text-align: left;
+        grid-column: auto;
+    }
+
+    .sidebar {
+        order: 0;
+    }
+
+    .cycle-svg {
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-number {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .cycle-svg {
+        max-width: 180px;
+    }
+}
+
+
+/* 5. 响应式设计 (Adaptation) */
+/* 当屏幕宽度小于 768px 时 (针对手机/平板) */
+@media (max-width: 768px) {
+    /* 导航栏调整：将链接堆叠 */
+    .main-nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    /* 首页卡片调整：堆叠成单栏 */
+    .card-container {
+        grid-template-columns: 1fr; 
+    }
+
+    /* 原理页调整：双栏变单栏堆叠 */
+    .principle-two-column-layout {
+        flex-direction: column;
+    }
+    
+    .principle-two-column-layout .sidebar {
+        order: 1; /* 侧边栏放在顶部或底部，根据需求调整 */
+    }
+
+    .principle-two-column-layout .content-detail {
+        order: 2;
+    }
+}
+
+/* 页脚居中样式 */
+footer {
+    text-align: center;
+    padding: 26px 0;
+    background: var(--footer-grad);
+    color: #fff;
+}
+
+/* Technology 页面布局优化 */
+.tech-grid-layout {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.intro-text {
+    text-align: center;
+    color: #555;
+    margin: 0 auto 18px;
+    max-width: 900px;
+}
+
+/* intro image: 居中且限制宽度，移动端自动缩小 */
+.intro-image {
+    display: block;
+    margin: 14px auto;
+    width: 70%;
+    max-width: 520px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 26px rgba(12,20,30,0.06);
+}
+
+@media (max-width: 768px) {
+    .intro-image {
+        width: 100%;
+        max-width: 360px;
+        margin: 12px auto;
+    }
+}
+
+.technology-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    align-items: stretch; /* 让网格项在高度上拉伸一致 */
+}
+
+.tech-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    justify-content: space-between; /* 保持内容分布，确保高度一致 */
+}
+
+.tech-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.tech-card h2 {
+    font-size: 1.15rem;
+    margin: 8px 0 4px;
+    text-align: center;
+    line-height: 1.25;
+    min-height: 3.0rem; /* 保留两行高度，防止换行导致高度不一致 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    word-break: break-word;
+}
+
+.tech-card h3 {
+    margin-top: 8px;
+}
+
+.tech-card p {
+    color: #444;
+}
+
+/* 特点（features）样式优化 */
+.tech-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+}
+
+.tech-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-top: 1px dashed rgba(0,0,0,0.04);
+}
+
+.tech-card li:first-child {
+    border-top: none;
+}
+
+.tech-card li::before {
+    content: '\2022';
+    color: #4a90e2;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.tech-card li strong {
+    display: inline-block;
+    min-width: 72px;
+    color: #0b3b6f;
+}
+
+@media (max-width: 768px) {
+    .tech-card h2 { text-align: left; min-height: auto; }
+    .tech-card img { max-height: 160px; }
+    .tech-card li { padding: 8px 0; }
+    .tech-card li strong { min-width: 64px; }
+}
+
+@media (max-width: 768px) {
+    .tech-grid-layout {
+        margin: 12px;
+        padding: 12px;
+    }
+
+    .technology-cards-container {
+        gap: 14px;
+    }
+}
+
+/* Application 页面布局优化：文章卡片样式 + 响应式 */
+.application-blog-layout {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 20px;
+}
+
+.application-blog-layout h1 {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.article-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.app-article {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(18,24,33,0.06);
+}
+
+.app-article img {
+    width: 45%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.app-article .article-content {
+    flex: 1;
+}
+
+.app-article h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* 优化应用页文字板块排版 */
+.app-article .article-content {
+    flex: 1;
+    padding: 6px 0;
+    max-width: 820px;
+}
+
+.app-article h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+    color: #16202a;
+}
+
+.app-article p {
+    color: #222831;
+    font-size: 1.02rem;
+    line-height: 1.9; /* 更舒适的行高 */
+    margin: 0 0 14px;
+    text-align: left; /* 左对齐更适合中文可读性 */
+    hyphens: none;
+}
+
+.app-article .article-content p:first-of-type {
+    margin-top: 4px;
+}
+
+.app-article .article-content .tag-row {
+    margin-top: 10px;
+}
+
+.app-article .article-content ul {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+}
+
+.app-article .article-content li {
+    margin-bottom: 8px;
+}
+
+/* 额外的可读性增强 */
+.app-article .article-content strong {
+    color: #0b3b6f;
+}
+
+.app-article .article-content em {
+    color: #4b5563;
+}
+
+.app-article .article-content blockquote {
+    border-left: 3px solid rgba(74,144,226,0.18);
+    padding: 10px 14px;
+    background: #fbfdff;
+    margin: 12px 0;
+    color: #2b3942;
+}
+
+@media (max-width: 768px) {
+    .app-article .article-content {
+        max-width: 100%;
+    }
+
+    .app-article h2 {
+        font-size: 1.15rem;
+    }
+
+    .app-article p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+.app-article.reverse {
+    flex-direction: row-reverse;
+}
+
+.tag {
+    display: inline-block;
+    background: #eef3f6;
+    color: #2c3e50;
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-top: 10px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .app-article {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .app-article.reverse {
+        flex-direction: column;
+    }
+
+    .app-article img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .application-blog-layout {
+        padding: 12px;
+        margin: 12px;
+    }
+}
+
+/* Resources 页面布局优化 */
+.resources-list-layout {
+    max-width: 1000px;
+    margin: 28px auto;
+    padding: 20px;
+}
+
+.resources-list-layout h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.resource-section {
+    margin-top: 20px;
+}
+
+.resource-section h2 {
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.resource-list li {
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+.resource-list li strong {
+    display: block;
+    font-size: 1.02rem;
+    margin-bottom: 6px;
+}
+
+.resource-list li p {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.resource-list li a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.software-list {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media (max-width: 768px) {
+    .resources-list-layout {
+        padding: 12px;
+        margin: 10px;
+    }
+
+    .resource-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+/* 中间主要内容区域（页面容器）统一浅天蓝背景 */
+/* 仅对可选的 page-center 使用浅天蓝背景；其它主要容器使用白色卡片背景 */
+.page-center {
+    background: var(--center-bg);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+/* 确保主要内容容器保持白色卡片背景 */
+main, .tech-grid-layout, .application-blog-layout, .resources-list-layout, .principle-two-column-layout {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+@media (max-width: 768px) {
+    .page-center {
+        border-radius: 8px;
+        padding: 12px;
+    }
+
+    main, .tech-grid-layout, .application-blog-layout, .resources-list-layout, .principle-two-column-layout {
+        border-radius: 8px;
+        padding: 12px;
+    }
+}

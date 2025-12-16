@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主流 3D 打印技术类型</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">3D 打印世界</div>
+            <ul>
+                <li><a href="index.html">🌐 首页</a></li>
+                <li><a href="principle.html">⚙️ 3D 打印原理</a></li>
+                <li><a href="technology.html" class="active">🔬 主流技术类型</a></li>
+                <li><a href="application.html">💡 应用领域</a></li>
+                <li><a href="resources.html">📚 资源与学习</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="tech-grid-layout">
+        <h1>🔬 主流 3D 打印技术类型对比</h1>
+        <p class="intro-text">了解目前市场上最常用的三种 3D 打印技术：熔融沉积成型（FDM）、光固化（SLA/DLP）和选择性激光烧结（SLS）。</p>
+        <img src="./img/打印机种类.png" alt="多种3D打印技术的示意图" class="intro-image">
+        <div class="technology-cards-container">
+            <section class="tech-card fdm">
+                <h2>FDM (Fused Deposition Modeling)</h2>
+                
+
+                <img src="./img/FDM3d打印机.png" alt="FDM 3D 打印机工作图示">
+                
+                <h3>工作原理</h3>
+                <p>通过加热喷嘴将热塑性丝材（如 PLA 或 ABS）熔化，并逐层挤出沉积在打印平台上，快速冷却固化成型。</p>
+                
+                <h3>特点</h3>
+                <ul>
+                    <li><strong>优势：</strong> 设备成本低，操作简便，材料种类多。</li>
+                    <li><strong>缺点：</strong> 精度相对较低，层纹明显。</li>
+                    <li><strong>适用：</strong> 原型设计、教育、普通家用。</li>
+                </ul>
+            </section>
+
+            <section class="tech-card sla">
+                <h2>SLA/DLP (Stereolithography / Digital Light Processing)</h2>
+                
+                <img src="./img/SLA3d打印机.png" alt="SLA/DLP 3D 打印机工作图示">
+                
+                <h3>工作原理</h3>
+                <p>使用激光（SLA）或数字投影仪（DLP）照射液态光敏树脂，使其发生聚合反应，逐层固化成型。</p>
+                
+                <h3>特点</h3>
+                <ul>
+                    <li><strong>优势：</strong> 精度极高，表面光滑，细节表现力强。</li>
+                    <li><strong>缺点：</strong> 材料成本高，需要复杂后处理（清洗、二次固化）。</li>
+                    <li><strong>适用：</strong> 珠宝、牙科、精密模型、艺术品。</li>
+                </ul>
+            </section>
+
+            <section class="tech-card sls">
+                <h2>SLS (Selective Laser Sintering)</h2>
+                
+                <img src="./img/SLS3d打印机.png" alt="SLS 3D 打印机工作图示">
+                
+                <h3>工作原理</h3>
+                <p>使用大功率激光选择性地烧结（熔化但不完全液化）粉末材料（如尼龙），使其结合在一起。</p>
+                
+                <h3>特点</h3>
+                <ul>
+                    <li><strong>优势：</strong> 无需支撑结构，材料性能优异（强度高），适合复杂内部结构。</li>
+                    <li><strong>缺点：</strong> 设备成本昂贵，粉末管理复杂。</li>
+                    <li><strong>适用：</strong> 功能性零件、小批量生产、航空航天。</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 3D 打印世界 | 主流技术</p>
+    </footer>
+</body>
+</html>
